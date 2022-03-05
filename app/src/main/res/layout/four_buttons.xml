@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/button_margin">
+
+        <TextView
+            android:id="@+id/four_button_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hits:" />
+
+        <Button
+            android:id="@+id/four_button_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/button_margin"
+            app:layout_constraintBottom_toTopOf="@id/four_button_four"
+            app:layout_constraintEnd_toStartOf="@id/four_button_two"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four_button_label"
+            tools:text="Hit" />
+
+        <Button
+            android:id="@+id/four_button_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/button_margin"
+            app:layout_constraintBottom_toTopOf="@id/four_button_four"
+            app:layout_constraintEnd_toStartOf="@id/four_button_three"
+            app:layout_constraintStart_toEndOf="@id/four_button_one"
+            app:layout_constraintTop_toBottomOf="@id/four_button_label"
+            tools:text="Hit" />
+
+        <Button
+            android:id="@+id/four_button_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/button_margin"
+            app:layout_constraintBottom_toTopOf="@id/four_button_four"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/four_button_two"
+            app:layout_constraintTop_toBottomOf="@id/four_button_label"
+            tools:text="Hit" />
+
+        <Button
+            android:id="@+id/four_button_four"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/button_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four_button_one"
+            tools:text="No Hits" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

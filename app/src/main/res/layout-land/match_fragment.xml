@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.darttrainer.gameScreens.match.screen.MatchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gameScreens.match.screen.MatchFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/standing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/numpad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sets"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/sets"
+                app:layout_constraintEnd_toEndOf="@id/sets"
+                app:layout_constraintStart_toStartOf="@id/sets" />
+
+            <TextView
+                android:id="@+id/sets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/score_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/player1_points"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/legs"
+                tools:text="3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/legs"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/legs"
+                app:layout_constraintEnd_toEndOf="@id/legs"
+                app:layout_constraintStart_toStartOf="@id/legs" />
+
+            <TextView
+                android:id="@+id/legs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/score_text_size"
+                app:layout_constraintBottom_toTopOf="@id/sets"
+                app:layout_constraintEnd_toStartOf="@id/player1_points"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/points"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/player1_points"
+                app:layout_constraintEnd_toEndOf="@id/player1_points"
+                app:layout_constraintStart_toStartOf="@id/player1_points" />
+
+            <TextView
+                android:id="@+id/player1_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/target_textSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/player2_points"
+                app:layout_constraintStart_toEndOf="@id/legs"
+                app:layout_constraintTop_toTopOf="@+id/sets"
+                tools:text="501" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Points"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/player2_points"
+                app:layout_constraintEnd_toEndOf="@id/player2_points"
+                app:layout_constraintStart_toStartOf="@id/player2_points" />
+
+            <TextView
+                android:id="@+id/player2_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/target_textSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/player2_legs"
+                app:layout_constraintStart_toEndOf="@id/player1_points"
+                app:layout_constraintTop_toTopOf="@+id/player2_sets"
+                tools:text="501" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Legs"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/player2_legs"
+                app:layout_constraintEnd_toEndOf="@id/player2_legs"
+                app:layout_constraintStart_toStartOf="@id/player2_legs" />
+
+            <TextView
+                android:id="@+id/player2_legs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/score_text_size"
+                app:layout_constraintBottom_toTopOf="@id/player2_sets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/player2_points"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_text_size"
+                app:layout_constraintBottom_toTopOf="@id/player2_sets"
+                app:layout_constraintEnd_toEndOf="@id/player2_sets"
+                app:layout_constraintStart_toStartOf="@id/player2_sets"
+                tools:text="Sets" />
+
+            <TextView
+                android:id="@+id/player2_sets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/score_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/player2_points"
+                app:layout_constraintTop_toBottomOf="@id/player2_legs"
+                tools:text="3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/numpad"
+            layout="@layout/numpad"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/standing"
+            app:layout_constraintVertical_weight="2">
+
+        </include>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

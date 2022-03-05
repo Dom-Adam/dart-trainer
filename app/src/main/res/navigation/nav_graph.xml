@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.darttrainer.homeScreen.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_displayGamesFragment"
+            app:destination="@id/displayGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/displayGamesFragment"
+        android:name="com.example.darttrainer.displayGames.DisplayGamesFragment"
+        android:label="DisplayGamesFragment">
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_matchSettingsFragment"
+            app:destination="@id/matchSettingsFragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_hundredDartsDialogFragment"
+            app:destination="@id/hundredDartsDialogFragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_catch40Fragment"
+            app:destination="@id/catch40Fragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_doublesArroundTheWorldFragment"
+            app:destination="@id/doublesArroundTheWorldFragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_fourHundredAndTwentyFragment"
+            app:destination="@id/fourHundredAndTwentyFragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_priestleysTreblesFragment"
+            app:destination="@id/priestleysTreblesFragment" />
+        <action
+            android:id="@+id/action_displayGamesFragment_to_doublesBoomerangFragment"
+            app:destination="@id/doublesBoomerangFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchSettingsFragment"
+        android:name="com.example.darttrainer.gameScreens.match.settings.MatchSettingsFragment"
+        android:label="match_settings_fragment"
+        tools:layout="@layout/match_settings_fragment">
+        <action
+            android:id="@+id/action_matchSettingsFragment_to_matchFragment"
+            app:destination="@id/matchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="com.example.darttrainer.gameScreens.match.screen.MatchFragment"
+        android:label="match_fragment"
+        tools:layout="@layout/match_fragment"></fragment>
+    <dialog
+        android:id="@+id/hundredDartsDialogFragment"
+        android:name="com.example.darttrainer.displayGames.HundredDartsDialogFragment"
+        android:label="HundredDartsDialogFragment">
+        <action
+            android:id="@+id/action_hundredDartsDialogFragment_to_hundredDartsFragment"
+            app:destination="@id/hundredDartsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/catch40Fragment"
+        android:name="com.example.darttrainer.gameScreens.fourToOne.catch40.Catch40Fragment"
+        android:label="Catch40Fragment" />
+    <fragment
+        android:id="@+id/doublesArroundTheWorldFragment"
+        android:name="com.example.darttrainer.gameScreens.fourToOne.DoublesArroundTheWorld.DoublesArroundTheWorldFragment"
+        android:label="DoublesArroundTheWorldFragment" />
+    <fragment
+        android:id="@+id/fourHundredAndTwentyFragment"
+        android:name="com.example.darttrainer.gameScreens.fourToOne.fourHundredAndTwenty.FourHundredAndTwentyFragment"
+        android:label="FourHundredAndTwentyFragment" />
+    <fragment
+        android:id="@+id/priestleysTreblesFragment"
+        android:name="com.example.darttrainer.gameScreens.fourToOne.priestleysTrebles.PriestleysTreblesFragment"
+        android:label="PriestleysTreblesFragment" />
+    <fragment
+        android:id="@+id/doublesBoomerangFragment"
+        android:name="com.example.darttrainer.gameScreens.fourToThree.doublesBoomerang.DoublesBoomerangFragment"
+        android:label="DoublesBoomerangFragment" />
+    <fragment
+        android:id="@+id/hundredDartsFragment"
+        android:name="com.example.darttrainer.gameScreens.tenToOne.hundredDarts.HundredDartsFragment"
+        android:label="HundredDartsFragment">
+        <argument
+            android:name="target"
+            app:argType="string" />
+    </fragment>
+</navigation>

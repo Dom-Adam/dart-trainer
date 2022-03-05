@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="button_margin">4dp</dimen>
+    <dimen name="target_textSize">60dp</dimen>
+    <dimen name="score_text_size">48dp</dimen>
+    <dimen name="label_text_size">16dp</dimen>
+    <dimen name="numpad_button_textSize">20sp</dimen>
+</resources>

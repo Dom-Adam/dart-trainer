@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintTop_toTopOf="@id/score"
+            app:layout_constraintBottom_toBottomOf="@id/score"
+            app:layout_constraintEnd_toStartOf="@id/score"
+            tools:text="Points" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/score_text_size"
+            app:layout_constraintBottom_toTopOf="@id/target_two_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/target_one_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@id/target_one"
+            app:layout_constraintEnd_toEndOf="@id/target_one"
+            app:layout_constraintStart_toStartOf="@id/target_one"
+            tools:text="@string/double_mod" />
+
+        <TextView
+            android:id="@+id/target_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/card"
+            android:textAlignment="center"
+            android:textSize="@dimen/target_textSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/target_two"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/score"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/target_two_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@id/target_two"
+            app:layout_constraintEnd_toEndOf="@id/target_two"
+            app:layout_constraintStart_toStartOf="@id/target_two"
+            tools:text="@string/double_mod" />
+
+        <TextView
+            android:id="@+id/target_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/card"
+            android:textAlignment="center"
+            android:textSize="@dimen/target_textSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/target_three"
+            app:layout_constraintStart_toEndOf="@id/target_one"
+            app:layout_constraintTop_toBottomOf="@id/score"
+            tools:text="18" />
+
+
+        <TextView
+            android:id="@+id/target_three_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@id/target_three"
+            app:layout_constraintEnd_toEndOf="@id/target_three"
+            app:layout_constraintStart_toStartOf="@id/target_three"
+            tools:text="@string/double_mod" />
+
+        <TextView
+            android:id="@+id/target_three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/card"
+            android:textAlignment="center"
+            android:textSize="@dimen/target_textSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/target_two"
+            app:layout_constraintTop_toBottomOf="@id/score"
+            tools:text="4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

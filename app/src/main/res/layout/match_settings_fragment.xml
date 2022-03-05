@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".gameScreens.match.settings.MatchSettingsFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_players_string"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/number_of_player"
+            app:layout_constraintEnd_toEndOf="@+id/number_of_player"
+            app:layout_constraintStart_toStartOf="@+id/number_of_player" />
+
+        <Spinner
+            android:id="@+id/number_of_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/number_of_players"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/player1_points"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points_per_legs"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player1_points"
+            app:layout_constraintEnd_toEndOf="@+id/player1_points"
+            app:layout_constraintStart_toStartOf="@+id/player1_points" />
+
+        <Spinner
+            android:id="@+id/player1_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/points"
+            app:layout_constraintBottom_toTopOf="@id/legs"
+            app:layout_constraintEnd_toStartOf="@id/player2_points"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_of_player" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points_per_legs"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player2_points"
+            app:layout_constraintEnd_toEndOf="@+id/player2_points"
+            app:layout_constraintStart_toStartOf="@+id/player2_points" />
+
+        <Spinner
+            android:id="@+id/player2_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/points"
+            app:layout_constraintBottom_toTopOf="@id/legs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/player1_points"
+            app:layout_constraintTop_toBottomOf="@id/number_of_player" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_legs"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/legs"
+            app:layout_constraintEnd_toEndOf="@+id/legs"
+            app:layout_constraintStart_toStartOf="@+id/legs" />
+
+        <EditText
+            android:id="@+id/legs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/sets"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player1_points" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_sets"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/sets"
+            app:layout_constraintEnd_toEndOf="@+id/sets"
+            app:layout_constraintStart_toStartOf="@+id/sets" />
+
+        <EditText
+            android:id="@+id/sets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/player1_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/legs" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/in"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player1_in"
+            app:layout_constraintEnd_toEndOf="@+id/player1_in"
+            app:layout_constraintStart_toStartOf="@+id/player1_in" />
+
+        <Spinner
+            android:id="@+id/player1_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/in_out_options"
+            app:layout_constraintBottom_toTopOf="@id/player1_out"
+            app:layout_constraintEnd_toStartOf="@id/player2_in"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sets" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/in"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player2_in"
+            app:layout_constraintEnd_toEndOf="@+id/player2_in"
+            app:layout_constraintStart_toStartOf="@+id/player2_in" />
+
+        <Spinner
+            android:id="@+id/player2_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/in_out_options"
+            app:layout_constraintBottom_toTopOf="@id/player2_out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/player1_in"
+            app:layout_constraintTop_toBottomOf="@id/sets" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/out"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player1_out"
+            app:layout_constraintEnd_toEndOf="@+id/player1_out"
+            app:layout_constraintStart_toStartOf="@+id/player1_out" />
+
+        <Spinner
+            android:id="@+id/player1_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/in_out_options"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@id/player2_out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player1_in" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/out"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/player2_out"
+            app:layout_constraintEnd_toEndOf="@+id/player2_out"
+            app:layout_constraintStart_toStartOf="@+id/player2_out" />
+
+        <Spinner
+            android:id="@+id/player2_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/in_out_options"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/player1_out"
+            app:layout_constraintTop_toBottomOf="@id/player2_in" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player1_out" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
