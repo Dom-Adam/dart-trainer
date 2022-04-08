@@ -16,7 +16,7 @@ import com.example.darttrainer.repository.CategoryList
 class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
 
     private val viewModel: HomeViewModel by lazy {
-        ViewModelProvider(this).get(HomeViewModel::class.java)
+        ViewModelProvider(this)[HomeViewModel::class.java]
     }
 
     override fun onCreateView(
