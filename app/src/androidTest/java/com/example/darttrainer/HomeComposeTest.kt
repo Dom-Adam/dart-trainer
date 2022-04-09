@@ -1,8 +1,8 @@
 package com.example.darttrainer
 
-import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.example.darttrainer.homeScreen.HomeListItem
 import org.junit.Rule
 import org.junit.Test
@@ -13,13 +13,13 @@ class HomeComposeTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun homeListItemTest() {
+    fun homeScreenTest() {
         composeTestRule.setContent {
             HomeListItem("Scoring")
         }
 
         composeTestRule
             .onNodeWithText("Scoring")
-            .assertIsDisplayed()
+            .performClick()
     }
 }

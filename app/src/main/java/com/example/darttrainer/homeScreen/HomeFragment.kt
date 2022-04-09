@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.darttrainer.adapters.HomeAdapter
-import com.example.darttrainer.databinding.HomeFragmentBinding
-import com.example.darttrainer.repository.CategoryList
 
-class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
+class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this)[HomeViewModel::class.java]
@@ -23,13 +21,6 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val binding = HomeFragmentBinding.inflate(inflater, container, false)
-
-        binding.viewModel = viewModel
-
-        binding.homeRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.homeRecyclerView.adapter = HomeAdapter(CategoryList.getCategories, this)
 
         viewModel.navigateToCategory.observe(viewLifecycleOwner, Observer {
             if (it != null) {
@@ -42,12 +33,9 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
             }
         })
 
-        return binding.root
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { HomeScreen() }
+        }
     }
-
-    override fun onItemClick(category: String) {
-        viewModel.onNavigateToCategory(category)
-    }
-
-
 }

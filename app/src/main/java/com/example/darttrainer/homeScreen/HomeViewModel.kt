@@ -10,7 +10,7 @@ class HomeViewModel : ViewModel() {
     val navigateToCategory: LiveData<String?>
         get() = _navigateToCategory
 
-    fun onNavigateToCategory(item: String?) {
+    fun onNavigateToCategory(item: String) {
         _navigateToCategory.value = item
     }
 
