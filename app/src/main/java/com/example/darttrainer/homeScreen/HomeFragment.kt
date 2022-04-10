@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
@@ -22,7 +21,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel.navigateToCategory.observe(viewLifecycleOwner, Observer {
+        viewModel.navigateToCategory.observe(viewLifecycleOwner) {
             if (it != null) {
                 findNavController()
                     .navigate(
@@ -31,7 +30,7 @@ class HomeFragment : Fragment() {
                     )
                 viewModel.onNavigateToCategoryComplete()
             }
-        })
+        }
 
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)

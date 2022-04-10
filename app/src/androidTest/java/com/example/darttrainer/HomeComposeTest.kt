@@ -15,7 +15,7 @@ class HomeComposeTest {
     @Test
     fun homeScreenTest() {
         composeTestRule.setContent {
-            HomeListItem("Scoring")
+            HomeListItem("Scoring", {})
         }
 
         composeTestRule

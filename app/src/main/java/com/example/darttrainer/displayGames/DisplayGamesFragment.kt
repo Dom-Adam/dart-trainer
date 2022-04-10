@@ -1,43 +1,30 @@
 package com.example.darttrainer.displayGames
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.darttrainer.SharedViewModel
-import com.example.darttrainer.adapters.DisplayGamesAdapter
-import com.example.darttrainer.databinding.DisplayGamesFragmentBinding
-import com.example.darttrainer.repository.gameList
 
-class DisplayGamesFragment : Fragment(), DisplayGamesAdapter.OnItemClickListener {
+class DisplayGamesFragment : Fragment() {
 
     private val args: DisplayGamesFragmentArgs by navArgs()
     private val sharedViewModel: SharedViewModel by activityViewModels()
-    private val viewModel: DisplayGamesViewModel by lazy {
-        ViewModelProvider(this).get(DisplayGamesViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        val binding = DisplayGamesFragmentBinding.inflate(inflater, container, false)
-
-        binding.viewModel = viewModel
-        binding.gamesRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.gamesRecyclerView.adapter = DisplayGamesAdapter(
-            this,
-            gameList.filter { args.category in it.categories }
-        )
-
-        sharedViewModel.selectedGame.observe(viewLifecycleOwner, {
+        sharedViewModel.selectedGame.observe(viewLifecycleOwner) {
+            Log.d("navigation", "fragment ${it.name}")
             when (it.name) {
                 "Catch 40" -> findNavController().navigate(
                     DisplayGamesFragmentDirections
@@ -64,13 +51,17 @@ class DisplayGamesFragment : Fragment(), DisplayGamesAdapter.OnItemClickListener
                         .actionDisplayGamesFragmentToHundredDartsDialogFragment()
                 )
             }
-        })
+        }
 
-        return binding.root
-    }
-
-    override fun onItemClick(game: String) {
-        sharedViewModel.selectGame(game)
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                DisplayGamesComposable(
+                    category = args.category,
+                    sharedViewModel = sharedViewModel
+                )
+            }
+        }
     }
 
 }

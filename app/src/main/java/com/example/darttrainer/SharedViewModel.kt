@@ -1,12 +1,15 @@
 package com.example.darttrainer
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.darttrainer.models.GameModel
 import com.example.darttrainer.models.MatchModel
 import com.example.darttrainer.repository.gameList
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltViewModel
 class SharedViewModel : ViewModel() {
 
     private val _selectedGame = MutableLiveData<GameModel>()
@@ -15,6 +18,7 @@ class SharedViewModel : ViewModel() {
 
     fun selectGame(game: String) {
         _selectedGame.value = gameList.find { it.name == game }
+        Log.d("navigation", selectedGame.value?.name ?: "null")
     }
 
 
