@@ -8,7 +8,7 @@ import androidx.room.Relation
 @Entity
 data class Game(
     @PrimaryKey(autoGenerate = true) val gameId: Long = 0,
-    var name: String,
+    val name: String,
 )
 
 @Entity
