@@ -8,9 +8,10 @@ import com.example.darttrainer.models.GameModel
 import com.example.darttrainer.models.MatchModel
 import com.example.darttrainer.repository.gameList
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 @HiltViewModel
-class SharedViewModel : ViewModel() {
+class SharedViewModel @Inject constructor() : ViewModel() {
 
     private val _selectedGame = MutableLiveData<GameModel>()
     val selectedGame: LiveData<GameModel>

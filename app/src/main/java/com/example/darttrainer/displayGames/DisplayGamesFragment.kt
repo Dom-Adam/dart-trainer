@@ -12,7 +12,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.darttrainer.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DisplayGamesFragment : Fragment() {
 
     private val args: DisplayGamesFragmentArgs by navArgs()
