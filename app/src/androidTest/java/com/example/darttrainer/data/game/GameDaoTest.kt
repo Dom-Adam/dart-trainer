@@ -41,7 +41,12 @@ class GameDaoTest {
         val game = Game(name = "100 Darts")
         val result = gameDao.insertGame(game)
 
-        assertThat(result).isInstanceOf(java.lang.Long::class.java)
+        assertThat(gameDao.readGame(gameId = result).first()).isEqualTo(
+            Game(
+                name = "100 Darts",
+                gameId = result
+            )
+        )
     }
 
     @Test
