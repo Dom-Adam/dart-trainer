@@ -1,23 +1,35 @@
 package com.example.darttrainer.data.game
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class FakeGameDatasource : GameDataSource {
-    val games = mutableListOf<GameWithDarts>()
+    val dartList = mutableListOf<Dart>()
+    val gameList = mutableListOf<Game>()
+    var games = mutableListOf<GameWithDarts>()
 
     override suspend fun insertGame(game: Game): Long {
-        games.add(GameWithDarts(game = game, darts = emptyList()))
-        return games.size.toLong()
+        val id = (gameList.size + 1).toLong()
+        gameList.add(game.copy(gameId = id))
+        return id
     }
 
     override suspend fun updateGame(dart: Dart): Long {
-        val darts = games[dart.dartGameId.toInt()].darts.toMutableList()
-        darts.add(dart)
+        dartList.add(dart)
         return dart.dartGameId
     }
 
     override fun readGameWithDarts(gameId: Long): Flow<GameWithDarts> {
-        TODO("Not yet implemented")
+        return flow {
+            gameList.find { game -> game.gameId == gameId }?.let {
+                emit(
+                    GameWithDarts(
+                        it,
+                        darts = dartList.filter { dart -> dart.dartGameId == gameId },
+                    )
+                )
+            }
+        }
     }
 
     override fun readGame(gameId: Long): Flow<Game> {
